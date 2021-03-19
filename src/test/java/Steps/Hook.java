@@ -53,22 +53,17 @@ public class Hook {
 //				f.delete();
 //			}
 //		 }
-		
-		
+
 		String osName = System.getProperty("os.name");
 		if (osName.equalsIgnoreCase("Mac OS X")) {
-		
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
-				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--disable-notifications");
-
-				driver = new ChromeDriver(options);
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			driver = new ChromeDriver(options);
 
 		} else if (osName.equals("Windows 10")) {
-
-				System.setProperty("webdriver.chrome.driver",
-						System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
-				driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+			driver = new ChromeDriver();
 
 		} else if (osName.equals("Linux")) {
 			DesiredCapabilities caps = new DesiredCapabilities();
@@ -81,44 +76,29 @@ public class Hook {
 		}
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+
 		driver.manage().deleteAllCookies();
 		File folder = new File(System.getProperty("user.dir") + "/FailedScreenshots/");
 		for (File f : folder.listFiles()) {
 			if (f.getName().endsWith(".png")) {
 				f.delete();
 			}
-		 }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
+		}
+
 	}
 
 	@After
 	public void tearDown(Scenario scenario) {
 		if (scenario.isFailed() == true) {
 			String screenshotName = scenario.getName().replaceAll(" ", "_");
-		        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		        //Copy the file to a location and use try catch block to handle exception
-		        try {
-		            FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir")+ "/FailedScreenshots/" + screenshotName+".png"));
-		        } catch (IOException e) {
-		            System.out.println(e.getMessage());
-		        }
+			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			// Copy the file to a location and use try catch block to handle exception
+			try {
+				FileUtils.copyFile(screenshot,
+						new File(System.getProperty("user.dir") + "/FailedScreenshots/" + screenshotName + ".png"));
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		driver.close();
 		driver = null;
