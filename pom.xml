@@ -76,7 +76,7 @@
 					<reuseForks>flase</reuseForks>
 					<testFailureIgnore>true</testFailureIgnore>
 					<threadCount>3</threadCount>
-					<parallel>classesAndMethods</parallel>
+					<!-- <parallel>classesAndMethods</parallel> -->
 					<useUnlimitedThreads>true</useUnlimitedThreads>
 				</configuration>
 			</plugin>

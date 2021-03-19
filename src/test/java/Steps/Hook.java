@@ -101,8 +101,7 @@ public class Hook {
 				System.out.println(e.getMessage());
 			}
 		}
-		driver.close();
-		driver = null;
+		driver.quit();
 
 	}
 
