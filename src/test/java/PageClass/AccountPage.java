@@ -20,7 +20,7 @@ public class AccountPage  {
 		wait = new WebDriverWait(driver, Hook.ExplicitWaitTimeOutUnit);
 	}
 	
-	@FindBy(id="usrname")
+	@FindBy(id="username")
 	WebElement username;
 	
 	@FindBy(id="password")
