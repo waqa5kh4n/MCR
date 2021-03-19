@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		"de.monochromata.cucumber.report.PrettyReports:target/cucumber" }, 
 		features = {"src/test/java/Features" }, 
 		glue = { "Steps" }, 
-		
+		tags = {"@classic" },
 		dryRun = false, 
 		monochrome = true)
 public class Test1Runner {

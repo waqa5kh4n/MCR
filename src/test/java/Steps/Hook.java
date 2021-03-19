@@ -55,6 +55,7 @@ public class Hook {
 //		 }
 
 		String osName = System.getProperty("os.name");
+		System.out.println("OS >>> "+osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
