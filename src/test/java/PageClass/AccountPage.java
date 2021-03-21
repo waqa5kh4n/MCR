@@ -23,7 +23,7 @@ public class AccountPage  {
 	@FindBy(id="username")
 	WebElement username;
 	
-	@FindBy(id="password")
+	@FindBy(id="pasword")
 	WebElement password;
 	
 	@FindBy(name="Login")

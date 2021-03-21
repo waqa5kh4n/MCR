@@ -20,12 +20,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import com.google.common.io.Files;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hook {
 	public static Duration ExplicitWaitTimeOutUnit = Duration.ofSeconds(10);
 	public static WebDriver driver;
+	
+	
 
 	@Before
 	public void startSetUp() {
@@ -88,20 +91,24 @@ public class Hook {
 
 	}
 
-	@After
+	@AfterStep
 	public void tearDown(Scenario scenario) {
+		System.out.println("Step passed");
+		
 		if (scenario.isFailed() == true) {
 			String screenshotName = scenario.getName().replaceAll(" ", "_");
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
 			// Copy the file to a location and use try catch block to handle exception
 			try {
 				FileUtils.copyFile(screenshot,
 						new File(System.getProperty("user.dir") + "/FailedScreenshots/" + screenshotName + ".png"));
+
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
 		}
-		driver.quit();
+		
 
 	}
 
