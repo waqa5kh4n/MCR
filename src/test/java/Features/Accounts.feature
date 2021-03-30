@@ -1,6 +1,6 @@
 Feature: Create an Account object
   As an authenticated user, I should be able to create an account record
-
+ @classic
   Scenario Outline: Create and Verify Account record
     Given I open chrome browser
     And I enter valid username "<username>"
@@ -11,7 +11,7 @@ Feature: Create an Account object
       | username                 | password  |
       | test.user@gmail.com.test | Pa555word |
 
-  @classic
+ 
   Scenario Outline: Create multiple account records
     Given I open chrome browser
     And I enter valid username "<username>"
