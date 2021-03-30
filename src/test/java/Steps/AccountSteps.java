@@ -18,7 +18,6 @@ public class AccountSteps extends AccountPage {
 
 	@Given("I open chrome browser")
 	public void i_open_chrome_browser() {
-		Hook.startSetUp();
 		driver.get("https://login.salesforce.com/");
 	}
 

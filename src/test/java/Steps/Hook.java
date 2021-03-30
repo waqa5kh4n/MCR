@@ -25,7 +25,7 @@ public class Hook {
 	public static WebDriver driver;
 
 	@Before
-	public static void startSetUp() {
+	public void startSetUp() {
 
 //		System.setProperty("webdriver.chrome.silentOutput", "true");
 //		WebDriverManager.chromedriver().setup();

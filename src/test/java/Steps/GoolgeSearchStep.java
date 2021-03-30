@@ -11,8 +11,8 @@ public class GoolgeSearchStep extends GoogleSearchPage{
 		LaunchGoogle();
 	}
 
-	@Given("I Search Something")
-	public void i_Search_Something() throws InterruptedException {
+	@Given("I Search SomethingFeature: Google Search")
+	public void i_Search_SomethingFeature_Google_Search() throws InterruptedException {
 		GoogleSearch();
 	}
 }
