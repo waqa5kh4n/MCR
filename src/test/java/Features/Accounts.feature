@@ -13,7 +13,6 @@ Feature: Create an Account object
 
   @classic
   Scenario Outline: Create multiple account records
-    #Given I go to the "qa" environment using "chrome" browser
     Given I open chrome browser
     And I enter valid username "<username>"
     And I enter valid password "<password>"
