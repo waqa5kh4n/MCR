@@ -69,6 +69,8 @@ public class Hook {
 //			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 //					System.getProperty("user.dir") + "/Drivers/phantomjs");
 //			driver = new PhantomJSDriver(caps);
+			System.out.println("drive : "+System.getProperty("user.dir"));
+			
 			
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
