@@ -67,7 +67,7 @@ public class Hook {
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
 			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-					System.getProperty("user.dir") + "/Drivers/phantomjs.exe");
+					System.getProperty("user.dir") + "/Drivers/phantomjs");
 			driver = new PhantomJSDriver(caps);
 			/*} else {
 			System.out.println("Driver is not configured for this Operating System.");
