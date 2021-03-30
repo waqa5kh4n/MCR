@@ -6,9 +6,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,18 +15,14 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.google.common.io.Files;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hook {
 	public static Duration ExplicitWaitTimeOutUnit = Duration.ofSeconds(10);
 	public static WebDriver driver;
-	
-	
 
 	@Before
 	public void startSetUp(Scenario scenario) {
@@ -56,9 +50,9 @@ public class Hook {
 //				f.delete();
 //			}
 //		 }
-System.out.println(scenario.getSourceTagNames());
+		System.out.println(scenario.getSourceTagNames());
 		String osName = System.getProperty("os.name");
-		System.out.println("OS >>> "+osName);
+		System.out.println("OS >>> " + osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
@@ -92,14 +86,12 @@ System.out.println(scenario.getSourceTagNames());
 	}
 
 	@AfterStep
-	public void tearDown(Scenario scenario) {
-		System.out.println("Step passed");
+	public void tearDown(Scenario step) {
 		
-		if (scenario.isFailed() == true) {
-			String screenshotName = scenario.getName().replaceAll(" ", "_");
+		if (step.isFailed() == true) {
+			String screenshotName = step.getName().replaceAll(" ", "_");
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-			// Copy the file to a location and use try catch block to handle exception
 			try {
 				FileUtils.copyFile(screenshot,
 						new File(System.getProperty("user.dir") + "/FailedScreenshots/" + screenshotName + ".png"));
@@ -108,8 +100,12 @@ System.out.println(scenario.getSourceTagNames());
 				System.out.println(e.getMessage());
 			}
 		}
-		
 
+	}
+
+	@After
+	public void endScenario(Scenario scenario) {
+		System.out.println("After the scenario finished : " + scenario.getName());
 	}
 
 	public static WebDriver getDriver() {

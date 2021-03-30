@@ -43,5 +43,7 @@ public class AccountPage  {
 		wait.until(ExpectedConditions.visibilityOf(Login));
 		Login.click();
 	}
+	
+	
 
 }
