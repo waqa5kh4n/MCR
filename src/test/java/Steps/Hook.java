@@ -50,7 +50,7 @@ public class Hook {
 //				f.delete();
 //			}
 //		 }
-		
+		/*
 		String osName = System.getProperty("os.name");
 		System.out.println("OS >>> " + osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
@@ -63,15 +63,15 @@ public class Hook {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 
-		} else if (osName.equals("Linux")) {
+		} else if (osName.equals("Linux")) {*/
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
 			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-					System.getProperty("user.dir") + "/Drivers/phantomjs");
+					System.getProperty("user.dir") + "/Drivers/phantomjs.exe");
 			driver = new PhantomJSDriver(caps);
-		} else {
+			/*} else {
 			System.out.println("Driver is not configured for this Operating System.");
-		}
+		}*/
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
