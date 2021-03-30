@@ -25,7 +25,7 @@ public class Hook {
 	public static WebDriver driver;
 
 	@Before
-	public void startSetUp(Scenario scenario) {
+	public static void startSetUp() {
 
 //		System.setProperty("webdriver.chrome.silentOutput", "true");
 //		WebDriverManager.chromedriver().setup();
@@ -50,7 +50,7 @@ public class Hook {
 //				f.delete();
 //			}
 //		 }
-		System.out.println(scenario.getSourceTagNames());
+		
 		String osName = System.getProperty("os.name");
 		System.out.println("OS >>> " + osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
