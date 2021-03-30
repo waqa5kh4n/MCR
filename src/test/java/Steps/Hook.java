@@ -85,7 +85,7 @@ public class Hook {
 
 	}
 
-	@AfterStep
+	@After
 	public void tearDown(Scenario step) {
 		
 		if (step.isFailed() == true) {
