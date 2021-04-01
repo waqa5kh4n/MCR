@@ -42,7 +42,7 @@ Feature: Create an Account object
     And I should see the following values for "acc9" field
       | --None-- |
       | Hot      |
-      #| Warm     |
+      | Warm     |
       | Cold     |
     And I should see the following values for "acc6" field
       | --None--                   |
