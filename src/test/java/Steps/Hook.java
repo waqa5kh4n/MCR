@@ -73,7 +73,7 @@ public class Hook {
 			driver = new ChromeDriver();
 
 		} else if (osName.equals("Linux")) {
-			System.setProperty("webdriver.chrome.driver","/user/bin/google-chrome");
+			System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
 			driver = new ChromeDriver(options);
