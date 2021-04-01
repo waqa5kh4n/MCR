@@ -78,6 +78,8 @@ public class Hook {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
+		
+			options.addArguments("headless");
 			driver = new ChromeDriver(options);
 			
 			} else {
