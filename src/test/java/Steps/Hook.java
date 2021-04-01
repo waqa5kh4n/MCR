@@ -73,17 +73,17 @@ public class Hook {
 			driver = new ChromeDriver();
 
 		} else if (osName.equals("Linux")) {
-			System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("headless");
-			driver = new ChromeDriver(options);
+//			System.setProperty("webdriver.chrome.driver","/usr/bin/phantomjs");
+//			ChromeOptions options = new ChromeOptions();
+//			options.addArguments("headless");
+//			driver = new ChromeDriver(options);
 			
-//			System.out.println("drive : "+System.getProperty("user.dir"));
-//			DesiredCapabilities caps = new DesiredCapabilities();
-//			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
-//			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-//					System.getProperty("user.dir") + "/Drivers/phantomjs");
-//			driver = new PhantomJSDriver(caps);
+			System.out.println("drive : "+System.getProperty("user.dir"));
+			DesiredCapabilities caps = new DesiredCapabilities();
+			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
+			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					 "/usr/bin/phantomjs");
+			driver = new PhantomJSDriver(caps);
 			} else {
 			System.out.println("Driver is not configured for this Operating System.");
 		}
