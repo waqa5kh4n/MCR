@@ -34,7 +34,7 @@ public class Hook {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("enable-automation");
-		//options.addArguments("--headless");
+		options.addArguments("--headless");
 		options.addArguments("--window-size=1920,1080");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-extensions");
@@ -120,10 +120,7 @@ public class Hook {
 
 	}
 
-	@After
-	public void endScenario(Scenario scenario) {
-		System.out.println("After the scenario finished : " + scenario.getName());
-	}
+	
 
 	public static WebDriver getDriver() {
 		return driver;
