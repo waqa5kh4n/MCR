@@ -64,18 +64,18 @@ public class Hook {
 			driver = new ChromeDriver();
 
 		} else if (osName.equals("Linux")) {
-//			DesiredCapabilities caps = new DesiredCapabilities();
-//			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
-//			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-//					System.getProperty("user.dir") + "/Drivers/phantomjs");
-//			driver = new PhantomJSDriver(caps);
+			DesiredCapabilities caps = new DesiredCapabilities();
+			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
+			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					System.getProperty("user.dir") + "/Drivers/phantomjs");
+			driver = new PhantomJSDriver(caps);
 			System.out.println("drive : "+System.getProperty("user.dir"));
 			
 			
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-notifications");
-			driver = new ChromeDriver(options);
+//			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
+//			ChromeOptions options = new ChromeOptions();
+//			options.addArguments("--disable-notifications");
+//			driver = new ChromeDriver(options);
 			
 			} else {
 			System.out.println("Driver is not configured for this Operating System.");
@@ -84,12 +84,12 @@ public class Hook {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.manage().deleteAllCookies();
-		File folder = new File(System.getProperty("user.dir") + "/FailedScreenshots/");
-		for (File f : folder.listFiles()) {
-			if (f.getName().endsWith(".png")) {
-				f.delete();
-			}
-		}
+//		File folder = new File(System.getProperty("user.dir") + "/FailedScreenshots/");
+//		for (File f : folder.listFiles()) {
+//			if (f.getName().endsWith(".png")) {
+//				f.delete();
+//			}
+//		}
 
 	}
 

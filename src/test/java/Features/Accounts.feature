@@ -11,7 +11,6 @@ Feature: Create an Account object
       | username                 | password  |
       | test.user@gmail.com.test | Pa555word |
 
- 
   Scenario Outline: Create multiple account records
     Given I open chrome browser
     And I enter valid username "<username>"
