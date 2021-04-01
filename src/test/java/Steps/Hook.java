@@ -30,10 +30,15 @@ public class Hook {
 	@Before
 	public void startSetUp() {
 
-		System.setProperty("webdriver.chrome.silentOutput", "true");
+		//System.setProperty("webdriver.chrome.silentOutput", "true");
+		File file = new File(System.getProperty("user.dir")+"/Drivers/chromedriver"); 
+		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath()); 
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.setBinary(System.getProperty("user.dir")+"/Drivers/chromedriver");
+		//options.setBinary(System.getProperty("user.dir")+"/Drivers/chromedriver");
+		
+		
+		
 		options.addArguments("enable-automation");
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1920,1080");
