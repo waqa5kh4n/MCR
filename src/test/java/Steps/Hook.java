@@ -29,7 +29,7 @@ public class Hook {
 
 	@Before
 	public void startSetUp() {
-
+/*
 		//System.setProperty("webdriver.chrome.silentOutput", "true");
 		//File file = new File(System.getProperty("user.dir")+"/usr/bin/google-chrome"); 
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome"); 
@@ -59,7 +59,7 @@ public class Hook {
 				f.delete();
 			}
 		 }
-		/*
+		*/
 		String osName = System.getProperty("os.name");
 		System.out.println("OS >>> " + osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
@@ -84,7 +84,7 @@ public class Hook {
 			
 			
 			
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 		
@@ -98,7 +98,7 @@ public class Hook {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.manage().deleteAllCookies();
-		*/
+		
 //		File folder = new File(System.getProperty("user.dir") + "/FailedScreenshots/");
 //		for (File f : folder.listFiles()) {
 //			if (f.getName().endsWith(".png")) {
