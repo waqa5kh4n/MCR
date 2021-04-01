@@ -33,6 +33,7 @@ public class Hook {
 		System.setProperty("webdriver.chrome.silentOutput", "true");
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
+		options.setBinary(System.getProperty("user.dir")+"/Drivers/chromedriver");
 		options.addArguments("enable-automation");
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1920,1080");
