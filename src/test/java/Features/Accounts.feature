@@ -1,5 +1,7 @@
+@regression
 Feature: Create an Account object
   As an authenticated user, I should be able to create an account record
+  
  @classic
   Scenario Outline: Create and Verify Account record
     Given I open chrome browser
@@ -29,6 +31,7 @@ Feature: Create an Account object
     Examples: 
       | username                 | password  |
       | test.user@gmail.com.test | Pa555word |
+
 
   Scenario Outline: Verify the drop down values
     #Given I go to the "qa" environment using "chrome" browser
