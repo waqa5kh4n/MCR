@@ -31,7 +31,7 @@ public class Hook {
 	public void startSetUp() {
 
 		//System.setProperty("webdriver.chrome.silentOutput", "true");
-		File file = new File(System.getProperty("user.dir")+"/Drivers/chromedriver"); 
+		File file = new File(System.getProperty("user.dir")+"/usr/bin/google-chrome"); 
 		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath()); 
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
