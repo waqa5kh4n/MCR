@@ -54,22 +54,25 @@ public class Hook {
 		String osName = System.getProperty("os.name");
 		System.out.println("OS >>> " + osName);
 		if (osName.equalsIgnoreCase("Mac OS X")) {
+			System.out.println("drive : "+System.getProperty("user.dir"));
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			driver = new ChromeDriver(options);
 
 		} else if (osName.equals("Windows 10")) {
+			System.out.println("drive : "+System.getProperty("user.dir"));
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 
 		} else if (osName.equals("Linux")) {
+			System.out.println("drive : "+System.getProperty("user.dir"));
 			DesiredCapabilities caps = new DesiredCapabilities();
 			caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
 			caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
 					System.getProperty("user.dir") + "/Drivers/phantomjs");
 			driver = new PhantomJSDriver(caps);
-			System.out.println("drive : "+System.getProperty("user.dir"));
+			
 			
 			
 //			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
